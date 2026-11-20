@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechJovem — Painel de resumo (Admin)</title>
+  <script src="js/tema.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="container">
+    <div id="topbar"></div>
+
+    <main id="conteudo">
+      <div class="perfil-cabecalho">
+        <h1 style="font-size: 2rem;">Painel de resumo</h1>
+        <span class="selo">Área exclusiva da equipe</span>
+      </div>
+      <p style="margin-top: 0.6rem;" id="painel-nota"></p>
+      <button type="button" class="btn btn-ghost btn-sm" id="btn-exemplo" aria-pressed="false"></button>
+
+      <div class="stat-grid" id="stat-grid"></div>
+
+      <div class="grid-2">
+        <section aria-labelledby="t-trilhas">
+          <h2 id="t-trilhas" style="font-size: 1.15rem; margin-bottom: 0.8rem;">Área mais recomendada</h2>
+          <div class="painel barras" id="barras-trilhas"></div>
+        </section>
+        <section aria-labelledby="t-feedback">
+          <h2 id="t-feedback" style="font-size: 1.15rem; margin-bottom: 0.8rem;">Opinião dos alunos</h2>
+          <div class="painel barras" id="barras-feedback"></div>
+        </section>
+      </div>
+    </main>
+
+    <div class="rodape">TechJovem · Projeto de Extensão &amp; Computação em Nuvem</div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/dados.js"></script>
+  <script src="js/trilhas.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/painel.js"></script>
+</body>
+</html>

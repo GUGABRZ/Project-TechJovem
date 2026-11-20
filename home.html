@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechJovem — Sua trilha começa aqui</title>
+  <script src="js/tema.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="container">
+    <div id="topbar"></div>
+
+    <main id="conteudo">
+      <section class="hero hero-split">
+        <div class="hero-texto">
+          <span class="kicker-pill"><span class="pulso" aria-hidden="true"></span> Olá, <span id="nome-usuario">estudante</span> 👋</span>
+          <h1>O mercado de tecnologia tem espaço para o <span class="texto-gradiente">seu jeito de pensar</span>.</h1>
+          <p class="lead">Não existe um único caminho em TI. Existem várias áreas — cada uma valoriza um tipo diferente de talento. Em poucos minutos, descubra qual delas combina mais com você.</p>
+          <div class="hero-cta" id="hero-cta"></div>
+        </div>
+
+        <aside class="painel hero-card" id="hero-card" aria-label="Seu status no TechJovem"></aside>
+      </section>
+
+      <div class="stats-row" role="list">
+        <div class="stat" role="listitem">
+          <div class="num">7</div>
+          <div class="lbl">áreas de carreira para explorar</div>
+        </div>
+        <div class="stat" role="listitem">
+          <div class="num">10</div>
+          <div class="lbl">perguntas sobre o seu perfil</div>
+        </div>
+        <div class="stat" role="listitem">
+          <div class="num">100%</div>
+          <div class="lbl">gratuito com roadmap e salários</div>
+        </div>
+      </div>
+
+      <section class="secao" aria-labelledby="titulo-trilhas">
+        <div class="secao-cab">
+          <div>
+            <h2 id="titulo-trilhas">Explore as 7 áreas da tecnologia</h2>
+            <p class="sub">Clique em qualquer área para ver rotina, salários médios, ferramentas e profissões.</p>
+          </div>
+          <a href="trilha.html?t=frontend" class="btn btn-ghost btn-sm">Comparar áreas →</a>
+        </div>
+        <div class="trilhas-grid" id="trilhas-grid"></div>
+      </section>
+    </main>
+
+    <div class="rodape">TechJovem · Projeto de Extensão &amp; Computação em Nuvem</div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/dados.js"></script>
+  <script src="js/trilhas.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

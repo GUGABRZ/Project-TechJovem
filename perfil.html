@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechJovem — Meu perfil</title>
+  <script src="js/tema.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="container">
+    <div id="topbar"></div>
+
+    <main id="conteudo">
+      <div class="perfil-cabecalho">
+        <h1 style="font-size: 2rem;">Meu perfil</h1>
+        <span class="selo" id="d-perfil-tipo">Estudante</span>
+      </div>
+
+      <div class="painel dados-conta">
+        <div class="dado"><div class="rot">E-mail</div><div class="val" id="d-email"></div></div>
+        <div class="dado"><div class="rot">Membro desde</div><div class="val" id="d-desde"></div></div>
+        <div class="dado"><div class="rot">Quizzes feitos</div><div class="val" id="d-quizzes"></div></div>
+      </div>
+
+      <div class="grid-2">
+        <section class="painel card-pad" aria-labelledby="t-nome">
+          <h2 id="t-nome">Editar nome</h2>
+          <p class="sub">É o nome que aparece na saudação da página inicial.</p>
+          <div class="form-msg" id="msg-nome" role="alert"></div>
+          <form id="form-nome" novalidate>
+            <div class="campo">
+              <label for="p-nome">Nome</label>
+              <input type="text" id="p-nome" autocomplete="name" />
+            </div>
+            <button type="submit" class="btn btn-primary">Salvar nome</button>
+          </form>
+        </section>
+
+        <section class="painel card-pad" aria-labelledby="t-senha">
+          <h2 id="t-senha">Trocar senha</h2>
+          <p class="sub">Use pelo menos 6 caracteres.</p>
+          <div class="form-msg" id="msg-senha" role="alert"></div>
+          <form id="form-senha" novalidate>
+            <div class="campo">
+              <label for="p-atual">Senha atual</label>
+              <div class="campo-senha">
+                <input type="password" id="p-atual" autocomplete="current-password" />
+                <button type="button" class="btn-olho" data-olho="p-atual" aria-label="Mostrar senha">Mostrar</button>
+              </div>
+            </div>
+            <div class="campo">
+              <label for="p-nova">Nova senha</label>
+              <div class="campo-senha">
+                <input type="password" id="p-nova" autocomplete="new-password" />
+                <button type="button" class="btn-olho" data-olho="p-nova" aria-label="Mostrar senha">Mostrar</button>
+              </div>
+              <div class="forca" data-forca-de="p-nova" aria-live="polite">
+                <div class="forca-barra"><span></span></div>
+                <small></small>
+              </div>
+            </div>
+            <div class="campo">
+              <label for="p-confirma">Confirmar nova senha</label>
+              <input type="password" id="p-confirma" autocomplete="new-password" />
+            </div>
+            <button type="submit" class="btn btn-primary">Trocar senha</button>
+          </form>
+        </section>
+
+        <section class="painel card-pad" id="card-admin-ativar" aria-labelledby="t-admin">
+          <h2 id="t-admin">Acesso da equipe</h2>
+          <p class="sub">Faz parte do grupo organizador do TechJovem? Digite o código da equipe para liberar o Painel de Resumo.</p>
+          <div class="form-msg" id="msg-admin" role="alert"></div>
+          <form id="form-admin" novalidate>
+            <div class="campo">
+              <label for="p-codigo-admin">Código da equipe</label>
+              <input type="password" id="p-codigo-admin" autocomplete="off" placeholder="Código de administrador" />
+            </div>
+            <button type="submit" class="btn btn-ghost">Ativar modo administrador</button>
+          </form>
+        </section>
+
+        <section class="painel card-pad card-perigo" aria-labelledby="t-excluir">
+          <h2 id="t-excluir">Excluir conta</h2>
+          <p class="sub">Apaga sua conta, resultados, progresso e opiniões deste navegador. Não dá para desfazer.</p>
+          <div class="form-msg" id="msg-excluir" role="alert"></div>
+          <form id="form-excluir" novalidate>
+            <div class="campo">
+              <label for="p-excluir-senha">Digite sua senha para confirmar</label>
+              <div class="campo-senha">
+                <input type="password" id="p-excluir-senha" autocomplete="current-password" />
+                <button type="button" class="btn-olho" data-olho="p-excluir-senha" aria-label="Mostrar senha">Mostrar</button>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-perigo">Excluir minha conta</button>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <div class="rodape">TechJovem · Projeto de Extensão &amp; Computação em Nuvem</div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/dados.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/perfil.js"></script>
+</body>
+</html>

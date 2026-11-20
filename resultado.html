@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechJovem — Seu resultado</title>
+  <script src="js/tema.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="container">
+    <div id="topbar"></div>
+
+    <main id="conteudo">
+      <p class="so-impressao" id="cabecalho-impressao"></p>
+
+      <section class="painel resultado-hero">
+        <div class="icone-trilha-grande" id="res-icone" aria-hidden="true"></div>
+        <span class="kicker">A área que mais combina com você é</span>
+        <h1 id="res-nome-trilha">—</h1>
+        <p class="desc" id="res-descricao"></p>
+        <div class="resultado-hero-acoes nao-imprimir">
+          <a class="btn btn-primary" id="res-saiba-mais" href="trilha.html">Saiba mais sobre esta área →</a>
+        </div>
+      </section>
+
+      <!-- Ranking -->
+      <section class="bloco" aria-labelledby="titulo-ranking">
+        <h2 id="titulo-ranking">Suas áreas mais compatíveis</h2>
+        <p class="sub">A porcentagem mostra qual parte dos seus pontos foi para cada área. Muita gente combina com mais de uma especialidade.</p>
+        <div class="painel rank-lista" id="ranking"></div>
+      </section>
+
+      <!-- Roadmap -->
+      <section class="bloco" aria-labelledby="titulo-roadmap">
+        <h2 id="titulo-roadmap">Seu roadmap de estudos</h2>
+        <p class="sub nao-imprimir">Marque cada passo conforme for concluindo. O progresso fica salvo na sua conta.</p>
+        <div class="painel progresso-box">
+          <div class="topo"><span id="prog-texto"></span><strong id="prog-pct"></strong></div>
+          <div class="barra" id="prog-barra" role="progressbar" aria-label="Progresso do roadmap" aria-valuemin="0" aria-valuemax="100"><span></span></div>
+        </div>
+        <div class="roadmap" id="roadmap"></div>
+      </section>
+
+      <!-- Histórico -->
+      <section class="bloco nao-imprimir" aria-labelledby="titulo-historico">
+        <h2 id="titulo-historico">Seu histórico</h2>
+        <p class="sub" id="hist-sub"></p>
+        <div class="painel"><ul class="hist-lista" id="historico"></ul></div>
+      </section>
+
+      <!-- Feedback -->
+      <section class="bloco nao-imprimir" aria-labelledby="titulo-feedback">
+        <h2 id="titulo-feedback">Sua opinião</h2>
+        <div class="painel feedback" id="feedback"></div>
+      </section>
+
+      <div class="acoes-resultado nao-imprimir">
+        <button type="button" class="btn btn-ghost" id="btn-imprimir">Baixar / imprimir resultado</button>
+        <a href="quiz.html?novo=1" class="btn btn-ghost">Refazer o quiz</a>
+        <a href="home.html" class="btn btn-primary">Voltar ao início</a>
+      </div>
+    </main>
+
+    <div class="rodape">TechJovem · Projeto de Extensão &amp; Computação em Nuvem</div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/dados.js"></script>
+  <script src="js/trilhas.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/resultado.js"></script>
+</body>
+</html>

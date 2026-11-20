@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechJovem — Entrar</title>
+  <script src="js/tema.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <div class="login-wrap">
+    <section class="login-intro" aria-label="Apresentação">
+      <div class="marca"><span class="ponto" aria-hidden="true">●</span> TechJovem</div>
+      <h1>Descubra qual área da <span class="texto-gradiente">tecnologia</span> combina com você.</h1>
+      <p>Responda um quiz interativo sobre o seu jeito de resolver problemas e receba uma recomendação de carreira em TI, com média salarial, rotina e roadmap gratuito.</p>
+
+      <div class="trilhas-legenda" aria-label="Áreas disponíveis">
+        <span class="legenda-chip" style="--cor: var(--trilha-frontend)">Front-end</span>
+        <span class="legenda-chip" style="--cor: var(--trilha-backend)">Back-end</span>
+        <span class="legenda-chip" style="--cor: var(--trilha-mobile)">Mobile</span>
+        <span class="legenda-chip" style="--cor: var(--trilha-dados)">Ciência de Dados</span>
+        <span class="legenda-chip" style="--cor: var(--trilha-seguranca)">Cibersegurança</span>
+        <span class="legenda-chip" style="--cor: var(--trilha-cloud)">Cloud &amp; DevOps</span>
+        <span class="legenda-chip" style="--cor: var(--trilha-suporte)">Suporte / Redes</span>
+      </div>
+
+      <div class="login-destaques">
+        <div class="destaque-item">✨ <strong>10 perguntas rápidas</strong> sem precisar saber programar</div>
+        <div class="destaque-item">💰 <strong>Dados reais de mercado</strong> e faixas salariais no Brasil</div>
+        <div class="destaque-item">🗺️ <strong>Roadmap interativo</strong> para acompanhar seus estudos</div>
+      </div>
+    </section>
+
+    <main class="login-form-side" id="conteudo">
+      <div class="painel card-form">
+        <div class="tabs" role="tablist" aria-label="Acesso">
+          <button class="tab-btn ativa" id="tab-login" type="button" role="tab" aria-selected="true" aria-controls="tela-login">Entrar</button>
+          <button class="tab-btn" id="tab-cadastro" type="button" role="tab" aria-selected="false" aria-controls="tela-cadastro">Criar conta</button>
+        </div>
+
+        <!-- Login -->
+        <div class="form-tela ativa" id="tela-login" role="tabpanel" aria-labelledby="tab-login">
+          <h2>Bem-vindo de volta</h2>
+          <p class="sub">Entre para continuar sua jornada.</p>
+          <div class="form-msg" id="msg-login" role="alert"></div>
+          <form id="form-login" novalidate>
+            <div class="campo">
+              <label for="login-email">E-mail</label>
+              <input type="email" id="login-email" required autocomplete="email" placeholder="voce@email.com" />
+            </div>
+            <div class="campo">
+              <label for="login-senha">Senha</label>
+              <div class="campo-senha">
+                <input type="password" id="login-senha" required autocomplete="current-password" placeholder="••••••" />
+                <button type="button" class="btn-olho" data-olho="login-senha" aria-label="Mostrar senha">Mostrar</button>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+          </form>
+        </div>
+
+        <!-- Cadastro -->
+        <div class="form-tela" id="tela-cadastro" role="tabpanel" aria-labelledby="tab-cadastro">
+          <h2>Criar sua conta</h2>
+          <p class="sub">Leva menos de um minuto.</p>
+          <div class="form-msg" id="msg-cadastro" role="alert"></div>
+          <form id="form-cadastro" novalidate>
+            <div class="campo">
+              <label for="cad-nome">Nome</label>
+              <input type="text" id="cad-nome" required autocomplete="name" placeholder="Seu nome" />
+            </div>
+            <div class="campo">
+              <label for="cad-email">E-mail</label>
+              <input type="email" id="cad-email" required autocomplete="email" placeholder="voce@email.com" />
+            </div>
+            <div class="campo">
+              <label for="cad-senha">Senha (mínimo 6 caracteres)</label>
+              <div class="campo-senha">
+                <input type="password" id="cad-senha" required minlength="6" autocomplete="new-password" placeholder="Crie uma senha" />
+                <button type="button" class="btn-olho" data-olho="cad-senha" aria-label="Mostrar senha">Mostrar</button>
+              </div>
+              <div class="forca" data-forca-de="cad-senha" aria-live="polite">
+                <div class="forca-barra"><span></span></div>
+                <small></small>
+              </div>
+            </div>
+
+            <details class="admin-collapse">
+              <summary>Sou da equipe organizadora (opcional)</summary>
+              <div class="campo" style="margin-top: 0.75rem; margin-bottom: 0;">
+                <label for="cad-codigo-admin">Código de acesso de administrador</label>
+                <input type="password" id="cad-codigo-admin" autocomplete="off" placeholder="Digite o código da equipe" />
+              </div>
+            </details>
+
+            <button type="submit" class="btn btn-primary btn-block" style="margin-top: 1.1rem;">Criar conta</button>
+          </form>
+        </div>
+      </div>
+      <button type="button" class="btn btn-ghost btn-sm" data-toggle-tema></button>
+    </main>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

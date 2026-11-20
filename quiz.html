@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechJovem — Quiz de Carreiras</title>
+  <script src="js/tema.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="container">
+    <div id="topbar"></div>
+
+    <main class="quiz-shell" id="conteudo">
+      <div class="aviso" id="aviso-retomada" hidden>
+        <span id="aviso-texto"></span>
+        <a href="quiz.html?novo=1" class="btn btn-ghost btn-sm">Recomeçar do zero</a>
+      </div>
+
+      <div class="trilha-path" id="trilha-path" aria-hidden="true"></div>
+
+      <div class="quiz-meta">
+        <span class="quiz-contador" id="quiz-contador" aria-live="polite"></span>
+        <span class="quiz-pct" id="quiz-pct"></span>
+      </div>
+
+      <div class="painel quiz-card">
+        <h1 style="font-size: 1.38rem; margin-bottom: 1.6rem;" id="quiz-pergunta" tabindex="-1"></h1>
+        <div class="opcoes" id="quiz-opcoes" role="group" aria-labelledby="quiz-pergunta"></div>
+        <p class="dica-teclado">⌨️ Dica: use as teclas <kbd>1</kbd> a <kbd>4</kbd> para responder e <kbd>←</kbd> <kbd>→</kbd> para navegar.</p>
+      </div>
+
+      <div class="quiz-nav">
+        <button class="btn btn-ghost" id="btn-anterior" type="button">← Voltar</button>
+        <button class="btn btn-primary" id="btn-proximo" type="button" disabled>Próxima →</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/dados.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/perguntas.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>
