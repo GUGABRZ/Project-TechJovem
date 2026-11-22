@@ -58,11 +58,11 @@
 
   const formAdmin = document.getElementById("form-admin");
   if (formAdmin) {
-    formAdmin.addEventListener("submit", (e) => {
+    formAdmin.addEventListener("submit", async (e) => {
       e.preventDefault();
       const msg = document.getElementById("msg-admin");
       const codigo = document.getElementById("p-codigo-admin").value;
-      const r = tjAtivarAdmin(usuario.email, codigo);
+      const r = await tjAtivarAdmin(usuario.email, codigo);
       if (r.ok) {
         usuario = tjUsuarioAtual();
         tjMontarTopbar();

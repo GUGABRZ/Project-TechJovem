@@ -123,9 +123,13 @@ async function tjAtualizarNome(email, novoNome) {
   return { ok: true };
 }
 
-/* Admin não se ativa mais pelo site. Quem ativa é o banco (ver o arquivo SQL). */
-function tjAtivarAdmin() {
-  return { ok: false, mensagem: "Administradores são definidos pela equipe técnica." };
+/* Ativa o modo administrador com o código da equipe. A validação é feita no banco. */
+async function tjAtivarAdmin(email, codigo) {
+  const { data, error } = await tjDb.rpc("ativar_admin", { codigo: String(codigo || "").trim() });
+  if (error) return { ok: false, mensagem: "Não foi possível verificar o código agora. Tente de novo." };
+  if (!data) return { ok: false, mensagem: "Código da equipe incorreto." };
+  await tjCarregarSessao();
+  return { ok: true };
 }
 
 async function tjAlterarSenha(email, senhaAtual, senhaNova) {
