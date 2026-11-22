@@ -116,23 +116,31 @@
       if (pts > maior) { maior = pts; vencedora = trilha; }
     });
 
-    await tjSalvarResultado(usuario.email, {
+    const salvo = await tjSalvarResultado(usuario.email, {
       trilha: vencedora,
       pontuacao,
       data: new Date().toISOString()
     });
-    tjLimparAndamento(usuario.email);
+    if (!salvo || !salvo.ok) return false;
+    await tjLimparAndamento(usuario.email);
+    return true;
   }
 
-  function avancar() {
+  async function avancar() {
     if (btnProximo.disabled) return;
     if (indice < total - 1) {
       indice++;
       salvarAndamento();
       renderPergunta(true);
     } else {
-      calcularResultado();
-      window.location.href = "resultado.html";
+      btnProximo.disabled = true;
+      const ok = await calcularResultado();
+      if (ok) {
+        window.location.href = "resultado.html";
+      } else {
+        btnProximo.disabled = false;
+        alert("Não foi possível salvar seu resultado. Verifique sua conexão e tente de novo.");
+      }
     }
   }
 
