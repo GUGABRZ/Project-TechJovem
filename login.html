@@ -89,14 +89,6 @@
               </div>
             </div>
 
-            <details class="admin-collapse">
-              <summary>Sou da equipe organizadora (opcional)</summary>
-              <div class="campo" style="margin-top: 0.75rem; margin-bottom: 0;">
-                <label for="cad-codigo-admin">Código de acesso de administrador</label>
-                <input type="password" id="cad-codigo-admin" autocomplete="off" placeholder="Digite o código da equipe" />
-              </div>
-            </details>
-
             <button type="submit" class="btn btn-primary btn-block" style="margin-top: 1.1rem;">Criar conta</button>
           </form>
         </div>
@@ -105,6 +97,8 @@
     </main>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="js/supabase-config.js"></script>
   <script src="js/auth.js"></script>
   <script src="js/ui.js"></script>
   <script src="js/login.js"></script>

@@ -1,6 +1,7 @@
 /* Perfil: editar nome, trocar senha, ativar acesso admin e excluir conta */
 
-(function () {
+(async function () {
+  await tjCarregarSessao();
   let usuario = tjExigirLogin();
   if (!usuario) return;
   tjMontarTopbar();
@@ -20,10 +21,10 @@
   }
   preencherDados();
 
-  document.getElementById("form-nome").addEventListener("submit", (e) => {
+  document.getElementById("form-nome").addEventListener("submit", async (e) => {
     e.preventDefault();
     const msg = document.getElementById("msg-nome");
-    const r = tjAtualizarNome(usuario.email, document.getElementById("p-nome").value);
+    const r = await tjAtualizarNome(usuario.email, document.getElementById("p-nome").value);
     if (r.ok) {
       usuario = tjUsuarioAtual();
       tjMensagem(msg, "sucesso", "Nome atualizado!");

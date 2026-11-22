@@ -3,7 +3,8 @@
    roadmap interativo, histórico e feedback.
    ========================================================= */
 
-(function () {
+(async function () {
+  await tjCarregarSessao();
   const usuario = tjExigirLogin();
   if (!usuario) return;
   tjMontarTopbar();

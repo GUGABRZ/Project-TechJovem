@@ -1,6 +1,7 @@
 /* Lógica de login e cadastro */
 
-(function () {
+(async function () {
+  await tjCarregarSessao();
   if (tjUsuarioAtual()) {
     window.location.href = "home.html";
     return;
@@ -70,10 +71,9 @@
     const nome = document.getElementById("cad-nome").value;
     const email = document.getElementById("cad-email").value;
     const senha = document.getElementById("cad-senha").value;
-    const codigoAdmin = document.getElementById("cad-codigo-admin").value;
 
     bloquear(form, true, "Criar conta");
-    const resultado = await tjCadastrar(nome, email, senha, codigoAdmin);
+    const resultado = await tjCadastrar(nome, email, senha);
     if (resultado.ok) {
       await tjLogin(email, senha);
       window.location.href = "home.html";

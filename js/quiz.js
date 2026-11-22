@@ -3,7 +3,8 @@
    e cálculo entre as 7 áreas de tecnologia.
    ========================================================= */
 
-(function () {
+(async function () {
+  await tjCarregarSessao();
   const usuario = tjExigirLogin();
   if (!usuario) return;
   tjMontarTopbar();
@@ -92,7 +93,7 @@
     if (moverFoco) elPergunta.focus();
   }
 
-  function calcularResultado() {
+  async function calcularResultado() {
     const pontuacao = {
       frontend: 0,
       backend: 0,
@@ -115,7 +116,7 @@
       if (pts > maior) { maior = pts; vencedora = trilha; }
     });
 
-    tjSalvarResultado(usuario.email, {
+    await tjSalvarResultado(usuario.email, {
       trilha: vencedora,
       pontuacao,
       data: new Date().toISOString()

@@ -1,6 +1,7 @@
 /* Página de detalhes da área: salários, mercado, rotina, ferramentas e profissões */
 
-(function () {
+(async function () {
+  await tjCarregarSessao();
   const usuario = tjExigirLogin();
   if (!usuario) return;
   tjMontarTopbar();

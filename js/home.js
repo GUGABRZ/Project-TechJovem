@@ -1,6 +1,7 @@
 /* Home: saudação, card interativo de status, CTAs e cartões das 7 áreas */
 
-(function () {
+(async function () {
+  await tjCarregarSessao();
   const usuario = tjExigirLogin();
   if (!usuario) return;
 

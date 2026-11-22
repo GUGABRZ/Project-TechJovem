@@ -2,7 +2,8 @@
    Painel de resumo — Exclusivo para Administradores.
    ========================================================= */
 
-(function () {
+(async function () {
+  await tjCarregarSessao();
   if (!tjExigirAdmin()) return;
   tjMontarTopbar();
 
@@ -23,32 +24,25 @@
     conhecia: { sim: 14, pouco: 20, nao: 11 }
   };
 
-  function dadosReais() {
-    const porUsuario = Object.values(tjGetTodosResultados());
-    const ultimos = porUsuario.map((h) => h[h.length - 1]).filter(Boolean);
-    const porTrilha = {
-      frontend: 0,
-      backend: 0,
-      mobile: 0,
-      dados: 0,
-      seguranca: 0,
-      cloud: 0,
-      suporte: 0
-    };
-    ultimos.forEach((r) => { if (porTrilha[r.trilha] !== undefined) porTrilha[r.trilha]++; });
+  const DADOS_VAZIOS = {
+    contas: 0, tentativas: 0, concluidos: 0,
+    porTrilha: { frontend: 0, backend: 0, mobile: 0, dados: 0, seguranca: 0, cloud: 0, suporte: 0 },
+    fezSentido: { sim: 0, parcial: 0, nao: 0 },
+    conhecia: { sim: 0, pouco: 0, nao: 0 }
+  };
 
-    const fezSentido = { sim: 0, parcial: 0, nao: 0 };
-    const conhecia = { sim: 0, pouco: 0, nao: 0 };
-    tjGetFeedbackTodos().forEach((f) => {
-      if (fezSentido[f.fezSentido] !== undefined) fezSentido[f.fezSentido]++;
-      if (conhecia[f.conhecia] !== undefined) conhecia[f.conhecia]++;
-    });
+  let dadosBanco = DADOS_VAZIOS;
 
+  async function carregarDadosBanco() {
+    const { data, error } = await tjDb.rpc("estatisticas_admin");
+    if (error || !data) return DADOS_VAZIOS;
     return {
-      contas: tjGetUsuarios().length,
-      tentativas: porUsuario.reduce((s, h) => s + h.length, 0),
-      concluidos: ultimos.length,
-      porTrilha, fezSentido, conhecia
+      contas: data.contas,
+      tentativas: data.tentativas,
+      concluidos: data.concluidos,
+      porTrilha: { ...DADOS_VAZIOS.porTrilha, ...data.porTrilha },
+      fezSentido: { ...DADOS_VAZIOS.fezSentido, ...data.fezSentido },
+      conhecia: { ...DADOS_VAZIOS.conhecia, ...data.conhecia }
     };
   }
 
@@ -67,14 +61,14 @@
   let usandoExemplo = false;
 
   function render() {
-    const d = usandoExemplo ? DADOS_EXEMPLO : dadosReais();
+    const d = usandoExemplo ? DADOS_EXEMPLO : dadosBanco;
 
     const ordenadas = Object.entries(d.porTrilha).sort((a, b) => b[1] - a[1]);
     const maisComum = ordenadas[0][1] > 0 ? TRILHAS[ordenadas[0][0]].nome : "—";
 
     document.getElementById("painel-nota").textContent = usandoExemplo
       ? "Mostrando DADOS DE EXEMPLO, apenas para demonstração. Nada disso foi salvo."
-      : "Mostrando os dados reais deste navegador. Com o banco na nuvem, este painel reunirá todos os alunos.";
+      : "Mostrando os dados reais de todos os alunos, vindos do banco de dados.";
 
     const botao = document.getElementById("btn-exemplo");
     botao.textContent = usandoExemplo ? "Voltar aos dados reais" : "Ver com dados de exemplo";
@@ -111,5 +105,6 @@
     render();
   });
 
+  dadosBanco = await carregarDadosBanco();
   render();
 })();
